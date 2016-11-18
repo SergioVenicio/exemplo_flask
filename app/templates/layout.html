@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" media="all">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse collapse navbar-toggleable-xs">
+      <a class="navbar-brand" href="http://getbootstrap.com/">BootStrap V.4</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href="{{ url_for('bp.home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('bp.add_user') }}">Cadastrar</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('bp.list_users') }}">Exibir</a></li>
+      </ul>
+      <form class="form-inline float-xs-right" action="{% block search %}{% endblock %}">
+        <input class="form-control" placeholder="Procurar" type="text" name="search"/>
+        <button class="btn btn-outline-info" type="submit">Procurar</button>
+      </form>
+    </nav>
+
+    {% block body %}{% endblock %}
+  </body>
+</html>
